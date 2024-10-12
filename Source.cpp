@@ -26,18 +26,25 @@ int main()
 	pos = str.find("//");
 	while (pos != string::npos)
 	{
-		pos_endl = str.find('\n');
-		str.erase(pos, pos_endl+1);
+		pos_endl = str.find("ENDLINE");
+		str.erase(pos, pos_endl-pos);
 		pos = str.find("//");
 	}
-
-	pos = str.find("/*");
-	while (pos != string::npos)
+	pos = str.find("ENDLINE");
+	while (pos!=string::npos)
 	{
-		pos_endl = str.find_last_of("*/");
-		str.erase(pos, pos_endl-pos+1);
-		pos = str.find("/*");
+		str.erase(pos, 7);
+		str.insert(pos, "\n");
+		pos = str.find("ENDLINE");
 	}
+
+	//pos = str.find("/*");
+	//while (pos != string::npos)
+	//{
+	//	pos_endl = str.find_last_of("*/");
+	//	str.erase(pos, pos_endl-pos+1);
+	//	pos = str.find("/*");
+	//}
 
 
 	cout << str << endl;
