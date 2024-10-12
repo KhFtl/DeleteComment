@@ -12,7 +12,7 @@ string ReadFile(string file)
 	while (!in.eof())
 	{
 		getline(in, line);
-		str += line+'\n';
+		str += line+"ENDLINE";
 	}
 	return str;
 }
